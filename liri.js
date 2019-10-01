@@ -55,7 +55,7 @@ begin(command, userInput);
                     console.log(concertResults);
 
                     //moment variable
-                    var momentTime = (concertResults.datetime).format("MM/DD/YYYY");
+                    var momentTime = moment(concertResults.datetime).format("MM/DD/YYYY");
 
                     console.log("\nVenue Name: " + concertResults.venue.name + "\nVenue Location: " + concertResults.venue.city + "\nDate of Event: " + momentTime);
                 });
