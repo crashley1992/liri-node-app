@@ -13,4 +13,4 @@ node liri.js do-what-it says
 
 Each command has a default answer if the user does not input a value. do-what-it-says gets it's input from the random.txt file. This needs to be appended if more info is needed.
 
-Link to publised page: 
+Link to publised page: https://crashley1992.github.io/liri-node-app/
