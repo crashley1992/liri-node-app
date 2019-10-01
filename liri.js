@@ -8,7 +8,7 @@ var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
 var moment = require("moment");
-
+console.log("Keys: " + JSON.stringify(keys));
 //Input arguements
 var command = process.argv[2];
 console.log(process.argv[2]);
@@ -45,7 +45,7 @@ begin(command, userInput);
             //function for the concert input
             function concertThis(userInput){
                     //if statement to let user response be input if theres no input
-                    if (userInput === " ") {
+                    if (userInput === "") {
                         userInput = "Beck";
                     }
                     //AXIOS YOO
@@ -64,14 +64,14 @@ begin(command, userInput);
     //Spotify this song input
             function spotifyThis(userInput) {
                 //for no user input
-                    if (userInput === " ") {
+                    if (userInput === "") {
                         userInput = "The Sign";
                     }
 
                     spotify.search( { type: 'track', query: userInput }, function(err, data) {
 
                         if (err) {
-                          return console.log('Error occurred: ' + err);
+                          return console.log(err);
 
                         } else {
                           for (var i = 0; i < data.tracks.items.length; i++ ) {
@@ -90,8 +90,9 @@ begin(command, userInput);
                 //Movie name input
 
                 function movieThis(userInput) {
-                    if (userInput === " ") {
-                        userInput === "SuperStar"; 
+                    if (userInput === "") {
+                        //will put superstar as default if it's left blank
+                        userInput = "Superstar"; 
                     }
 
                     axios.get("http://www.omdbapi.com/?t=" + userInput + "&y=&plot=short&apikey=trilogy").then(function (response) {
